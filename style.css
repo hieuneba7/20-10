@@ -1,0 +1,114 @@
+/* Import font chữ đẹp từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Ẩn thanh cuộn do hiệu ứng có thể tràn ra ngoài */
+}
+
+.container {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 650px;
+    width: 100%;
+    text-align: center;
+    padding: 40px;
+    transform: scale(0.95);
+    opacity: 0;
+    animation: fadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    z-index: 10; /* Đảm bảo nội dung chính nổi lên trên hiệu ứng */
+    position: relative;
+}
+
+@keyframes fadeIn {
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.header h1 {
+    color: #e91e63;
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.content p {
+    color: #444;
+    font-size: 1.2em;
+    line-height: 1.7;
+}
+
+.content .names {
+    font-weight: 700;
+    font-size: 1.6em;
+    color: #d81b60;
+    margin: 15px 0 25px 0;
+}
+
+.image-container {
+    margin-top: 30px;
+}
+
+.image-container img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* === HIỆU ỨNG TIM VÀ HOA BAY === */
+
+.effects-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Cho phép click xuyên qua lớp hiệu ứng */
+    z-index: 1;
+    overflow: hidden;
+}
+
+.flying-element {
+    position: absolute;
+    bottom: -150px; /* Bắt đầu từ bên dưới màn hình */
+    animation: flyUp 15s linear infinite;
+}
+
+.heart {
+    font-size: 2rem;
+    color: red;
+    opacity: 0.7;
+}
+
+.flower {
+    width: 50px;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) translateX(0vw) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-60vh) translateX(5vw) rotate(180deg);
+    }
+    100% {
+        transform: translateY(-120vh) translateX(-5vw) rotate(360deg);
+        opacity: 0;
+    }
+}
